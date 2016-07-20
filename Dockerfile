@@ -1,4 +1,5 @@
 FROM ubuntu:14.04
+MAINTAINER Flávio Ribeiro <email@flavioribeiro.com>
 
 # Update apt and install dependencies with multiverse
 RUN sh -c "echo 'deb http://us.archive.ubuntu.com/ubuntu trusty main multiverse' >> /etc/apt/sources.list"
