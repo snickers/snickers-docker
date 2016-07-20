@@ -5,7 +5,7 @@ MAINTAINER Flávio Ribeiro <email@flavioribeiro.com>
 RUN sh -c "echo 'deb http://us.archive.ubuntu.com/ubuntu trusty main multiverse' >> /etc/apt/sources.list"
 RUN apt-get update -qq
 RUN apt-get install --force-yes -y -qq libfaac-dev libgpac-dev libmp3lame-dev libjpeg-turbo8-dev libtheora-dev \
-  libvorbis-dev libx264-dev libvlccore-dev libvlc-dev mediainfo git build-essential yasm curl 2>&1
+  libvorbis-dev libx264-dev libvlccore-dev libvlc-dev git build-essential yasm curl
 
 # Install libvpx with VP8/VP9 support
 RUN git clone --depth=1 https://chromium.googlesource.com/webm/libvpx
