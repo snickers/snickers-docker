@@ -20,9 +20,13 @@ RUN cd ffmpeg && ./configure --enable-shared --enable-swscale --enable-gpl  --en
 RUN curl -O https://storage.googleapis.com/golang/go1.6.linux-amd64.tar.gz
 RUN tar -xvzf go1.6.linux-amd64.tar.gz
 RUN mv go /usr/local
+RUN mkdir /go
 
 # Set environment variables for go
-ENV GOROOT /usr/local/go
-ENV PATH $PATH:$GOROOT/bin
-RUN mkdir /go
 ENV GOPATH /go
+ENV GOROOT /usr/local/go
+ENV PATH $PATH:$GOROOT/bin:$GOPATH/bin
+RUN sh -c "echo '/usr/local/lib' >> /etc/ld.so.conf"
+RUN ldconfig
+RUN rm -rf ffmpeg libvpx go1.6.linux-amd64.tar.gz
+RUN rm -rf /var/lib/apt/lists/*
