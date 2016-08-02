@@ -3,7 +3,7 @@ MAINTAINER Flávio Ribeiro <email@flavioribeiro.com>
 
 # Update apt and install dependencies with multiverse
 RUN sh -c "echo 'deb http://us.archive.ubuntu.com/ubuntu trusty main multiverse' >> /etc/apt/sources.list"
-RUN apt-get update -qq && apt-get install --force-yes -y -qq libfaac-dev libgpac-dev libmp3lame-dev libjpeg-turbo8-dev libtheora-dev \
+RUN apt-get update -qq && apt-get install --force-yes -y -qq mediainfo libfaac-dev libgpac-dev libmp3lame-dev libjpeg-turbo8-dev libtheora-dev \
   libvorbis-dev libx264-dev libvlccore-dev libvlc-dev git make cmake yasm curl && \
   apt-get clean && rm -rf /var/lib/apt/lists/*
 
