@@ -1,6 +1,8 @@
 FROM ubuntu:14.04
 MAINTAINER Flávio Ribeiro <email@flavioribeiro.com>
 
+ENV GO_VERSION 1.8.1
+
 # Update apt and install dependencies with multiverse
 RUN sh -c "echo 'deb http://us.archive.ubuntu.com/ubuntu trusty main multiverse' >> /etc/apt/sources.list"
 RUN apt-get update -qq && apt-get install --force-yes -y -qq mediainfo libfaac-dev libgpac-dev libmp3lame-dev libjpeg-turbo8-dev libtheora-dev \
@@ -19,7 +21,7 @@ RUN git clone --depth=1 git://source.ffmpeg.org/ffmpeg.git && \
   rm -rf ffmpeg
 
 # Install Go
-RUN curl -L https://storage.googleapis.com/golang/go1.6.3.linux-amd64.tar.gz | tar -C /usr/local -xzf - && \
+RUN curl -L https://storage.googleapis.com/golang/go${GO_VERSION}.linux-amd64.tar.gz | tar -C /usr/local -xzf - && \
   mkdir /go
 
 # Set environment variables for go
